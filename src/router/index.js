@@ -25,7 +25,7 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      requireAuth: true,
+      requiresAuth: true,
     },
   },
   {
@@ -33,7 +33,7 @@ const routes = [
     name: "detail",
     component: Detail,
     meta: {
-      requireAuth: true,
+      requiresAuth: true,
     },
     props: true,
   },
@@ -42,7 +42,7 @@ const routes = [
     name: 'profile',
     component: Profile,
     meta: {
-      requireAuth: true,
+      requiresAuth: true,
     },
   },
 ];
@@ -55,7 +55,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (
-    to.matched.some((record) => record.meta, requireAuth) && !store.state.auth
+    to.matched.some((record) => record.meta.requiresAuth) && !store.state.auth
   ) {
     next({
       path: "/",

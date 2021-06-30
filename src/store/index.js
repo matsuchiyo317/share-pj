@@ -54,7 +54,7 @@ export default new Vuex.Store({
         })
         .then((response) => {
           console.log(response);
-          commit("logout", resopose.data.auth);
+          commit("logout", response.data.auth);
           router.replace("/");
         })
         .catch((error) => {
